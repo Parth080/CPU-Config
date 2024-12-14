@@ -12,7 +12,7 @@ const RAMInfo = () => {
       .catch(() => setRamUsage(0));
   }, []);
 
-  // Calculate the gradient based on the RAM usage
+  
   const sliderStyle = {
     background: `linear-gradient(to right, #00b5d6 ${ramUsage}%, #C0C0C0 ${ramUsage}%)`,
   };
