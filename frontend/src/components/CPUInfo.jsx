@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom"; 
 
 const CPUInfo = () => {
   const [cpuUsage, setCpuUsage] = useState("Loading...");
@@ -13,40 +13,39 @@ const CPUInfo = () => {
   }, []);
 
   const isNaNUsage =
-    cpuUsage === "Loading..." || cpuUsage === "Error fetching CPU data"; // Check for loading or error states
+    cpuUsage === "Loading..." || cpuUsage === "Error fetching CPU data"; 
 
   const sliderStyle = {
     background: isNaNUsage
-      ? "#C0C0C0" // Gray background when loading or error
-      : `linear-gradient(to right, #00b5d6 ${cpuUsage}%, #C0C0C0 ${cpuUsage}%)`, // Gradient for valid values
-  };
+      ? "#C0C0C0" 
+      : `linear-gradient(to right, #00b5d6 ${cpuUsage}%, #C0C0C0 ${cpuUsage}%)`, 
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-cyan-800 p-6 animate__animated animate__fadeIn">
       <div className="space-y-6 bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-3xl font-semibold text-gray-700 mb-4">CPU Info</h1>
 
-        {/* CPU Usage Slider */}
+      
         <div className="space-y-4 text-center">
           <div className="relative w-full">
             <input
               type="range"
               min="0"
               max="100"
-              value={isNaNUsage ? 0 : cpuUsage} // Set to 0 if loading or error
+              value={isNaNUsage ? 0 : cpuUsage} 
               className="w-full h-2 rounded-full appearance-none cursor-pointer transition-all ease-out duration-300 hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-300"
               style={sliderStyle}
               readOnly
             />
           </div>
 
-          {/* Display CPU Usage Percentage */}
+          
           <p className="text-xl font-medium text-gray-800">
             <strong>CPU Usage:</strong> {isNaNUsage ? "N/A" : `${cpuUsage}%`}
           </p>
         </div>
 
-        {/* Home Button to Navigate Back to Dashboard */}
+        
         <Link
           to="/"
           className="inline-block bg-cyan-500 text-white py-2 px-4 rounded-lg shadow hover:bg-cyan-600 focus:outline-none transition-all flex justify-center align-middle ease-out duration-300"
