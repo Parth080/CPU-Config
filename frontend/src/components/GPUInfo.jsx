@@ -12,12 +12,12 @@ const GPUInfo = () => {
       .catch(() => setGpuUsage("Error fetching GPU data"));
   }, []);
 
-  const isNaNUsage = gpuUsage === "N/A"; // Check if the usage is N/A
+  const isNaNUsage = gpuUsage === "N/A"; 
 
   const sliderStyle = {
     background: isNaNUsage
-      ? "#C0C0C0" // Gray background when N/A
-      : `linear-gradient(to right, #00b5d6 ${gpuUsage}%, #C0C0C0 ${gpuUsage}%)`, // Gradient for valid values
+      ? "#C0C0C0" 
+      : `linear-gradient(to right, #00b5d6 ${gpuUsage}%, #C0C0C0 ${gpuUsage}%)`, 
   };
 
   return (
@@ -32,7 +32,7 @@ const GPUInfo = () => {
               type="range"
               min="0"
               max="100"
-              value={isNaNUsage ? 0 : gpuUsage} // Set to 0 if N/A
+              value={isNaNUsage ? 0 : gpuUsage} 
               className="w-full h-2 rounded-full appearance-none cursor-pointer transition-all ease-out duration-300 hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-300"
               style={sliderStyle}
               readOnly
